@@ -56,3 +56,8 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 group :development do
   gem 'rubocop', require: false
 end
+
+# ファイルの一番下の行に追記する
+group :production do
+  gem 'rails_12factor'
+end
