@@ -27,42 +27,47 @@ Things you may want to cover:
 
 ## users テーブル
 
-| Column     | Type   | Options     |
-| ---------- | ------ | ----------- |
-| nickname   | string | null: false |
-| email      | string | null: false |
-| password   | string | null: false |
-| kanjiname  | string | null: false |
-| kananame   | string | null: false |
-| birth_date | integer| null: false |
+| Column          | Type   | Options     |
+| --------------- | ------ | ----------- |
+| nickname        | string | null: false |
+| email           | string | null: false |
+| password        | string | null: false |
+| lastname        | string | null: false |
+| firstname       | string | null: false |
+| lastname(kana)  | string | null: false |
+| firstname(kana) | string | null: false |
+| birth_date      | date   | null: false |
  
 
 ### Association
 
 - has_many :items
 - has_many :purchased_items
-- has_many :messages
 
 
 
 ## items テーブル
  
-| Column         | Type       | Options                        |
-| -------------- | ---------- | ------------------------------ |
-| user_id        | references | null: false, foreign_key: true |
-| image          | string     | null: false                    |
-| name           | string     | null: false                    |
-| discription    | text       | null: fals                     |
-| condition      | string     | null: false                    |
-| charge         | string     | null: false                    |
-| shipping_place | string     | null: false                    |
-| shipping_date  | sring      | null: false                    |
-| price          | integer    | null: false                    |
+| Column           | Type       | Options                        |
+| ---------------- | ---------- | ------------------------------ |
+| user             | references | null: false, foreign_key: true |
+| image            | string     | null: false                    |
+| name             | string     | null: false                    |
+| discription      | text       | null: fals                     |
+| condition_id     | integer    | null: false                    |
+| charge_id        | integer    | null: false                    |
+| shipping_place_id| integer    | null: false                    |
+| shipping_date_id | integer    | null: false                    |
+| price            | integer    | null: false                    |
 
 ### Association
 
 - has_many :purchased_items
-- belongs_to :users
+- belongs_to :user
+- belongs_to_active_hash :condition
+- belongs_to_active_hash :charge
+- belongs_to_active_hash :shipping_place
+- belongs_to_active_hash :shipping_date
 
 
 
@@ -70,29 +75,30 @@ Things you may want to cover:
 
 | Column   | Type       | Options                        |
 | -------- | ---------- | ------------------------------ |
-| user_id  | references | null: false, foreign_key: true |
-| item_id  | references | null: false, foreign_key: true |
+| user     | references | null: false, foreign_key: true |
+| item     | references | null: false, foreign_key: true |
 
 ### Association
 
-- belongs_to :users
-- belongs_to :items
-- has_one :adresses
+- belongs_to :user
+- belongs_to :item
+- has_one :adress
 
 
 
 
 ## adresses テーブル
 
-| Column            | Type       | Options                        |
-| ----------------- | ---------- | ------------------------------ |
-| purchased_item_id | references | null: false, foreign_key: true |
-| postal_code       | integer    | null: false                    |
-| prefecture        | string     | null: false                    |
-| city              | string     | null: false                    |
-| building_name     | string     |                                |
-| phone_number      | integer    | null: false                    |
+| Column         | Type       | Options                        |
+| -------------  | ---------- | ------------------------------ |
+| purchased_item | references | null: false, foreign_key: true |
+| postal_code    | string     | null: false                    |
+| prefecture_id  | integer    | null: false                    |
+| city           | string     | null: false                    |
+| building_name  | string     |                                |
+| phone_number   | string     | null: false                    |
 
 ### Association
 
-- belongs_to :purchased_items
+- belongs_to :purchased_item
+- belongs_to_active_hash :prefecture 
