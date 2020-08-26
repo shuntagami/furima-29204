@@ -57,7 +57,11 @@ group :development do
   gem 'rubocop', require: false
 end
 
+gem 'devise'
+
 # ファイルの一番下の行に追記する
 group :production do
   gem 'rails_12factor'
 end
+
+
