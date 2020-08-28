@@ -65,6 +65,7 @@ Things you may want to cover:
 
 - has_many :purchased_items
 - belongs_to :user
+- belongs_to_active_hash :category
 - belongs_to_active_hash :condition
 - belongs_to_active_hash :charge
 - belongs_to_active_hash :shipping_place
