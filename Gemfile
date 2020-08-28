@@ -48,6 +48,10 @@ group :test do
   gem 'selenium-webdriver'
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers'
+  gem 'rspec-rails', '~> 4.0.0'
+  gem 'factory_bot_rails'
+  gem 'faker'
+  gem 'gimei'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
@@ -57,7 +61,11 @@ group :development do
   gem 'rubocop', require: false
 end
 
+gem 'devise'
+
 # ファイルの一番下の行に追記する
 group :production do
   gem 'rails_12factor'
 end
+
+

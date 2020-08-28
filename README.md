@@ -34,8 +34,8 @@ Things you may want to cover:
 | password        | string | null: false |
 | lastname        | string | null: false |
 | firstname       | string | null: false |
-| lastname(kana)  | string | null: false |
-| firstname(kana) | string | null: false |
+| lastname_kana   | string | null: false |
+| firstname_kana  | string | null: false |
 | birth_date      | date   | null: false |
  
 
