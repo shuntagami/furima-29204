@@ -54,8 +54,6 @@ describe User do
         another_user.valid?
         expect(another_user.errors.full_messages).to include("Email has already been taken")
       end
-      it "emailに@が含まれない場合登録できない" do
-      end
       it "lastnameが空では登録できない" do
         @user.lastname = nil
         @user.valid?
