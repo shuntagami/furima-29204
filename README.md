@@ -53,7 +53,8 @@ Things you may want to cover:
 | user             | references | null: false, foreign_key: true |
 | image            | string     | null: false                    |
 | name             | string     | null: false                    |
-| discription      | text       | null: fals                     |
+| discription      | text       | null: false                    |
+| category_id      | integer    | null: false                    |
 | condition_id     | integer    | null: false                    |
 | charge_id        | integer    | null: false                    |
 | shipping_place_id| integer    | null: false                    |
