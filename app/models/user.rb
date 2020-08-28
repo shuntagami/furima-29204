@@ -7,14 +7,15 @@ class User < ApplicationRecord
   PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i.freeze
   validates_format_of :password, with: PASSWORD_REGEX, message: 'Include both letters and numbers'
 
-  with_options presence: true, format: { with: /[ぁ-んァ-ン一-龥]/, message: 'Full-width characters' } do
+  NAME_REGEX = /[ぁ-んァ-ン一-龥]/.freeze
+  with_options presence: true, format: { with: NAME_REGEX, message: 'Full-width characters' } do
     validates :lastname
     validates :firstname
   end
 
-  with_options presence: true, format: { with: /[ァ-ン]/, message: 'Full-width katakana characters' } do
+  NAME_KANA_REGEX = /[ァ-ン]/.freeze
+  with_options presence: true, format: { with: NAME_KANA_REGEX, message: 'Full-width katakana characters' } do
     validates :lastname_kana
     validates :firstname_kana
   end
-
 end
