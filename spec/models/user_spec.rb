@@ -20,19 +20,19 @@ describe User do
         expect(@user).to be_valid
       end
       it "lastnameが全角（漢字，ひらがな，カタカナ）であれば登録できる" do
-        @user.lastname = "あア阿"
+        @user.lastname = "佐藤"
         expect(@user).to be_valid
       end
       it "firstnameが全角（漢字，ひらがな，カタカナ）であれば登録できる" do
-        @user.firstname = "いイ井"
+        @user.firstname = "太郎"
         expect(@user).to be_valid
       end
       it "lastname_kanaが全角（カタカナ）であれば登録できる" do
-        @user.lastname_kana = "アアア"
+        @user.lastname_kana = "サトウ"
         expect(@user).to be_valid
       end
       it "firstname_kanaが全角（カタカナ）であれば登録できる" do
-        @user.firstname_kana = "イイイ"
+        @user.firstname_kana = "タロウ"
         expect(@user).to be_valid
       end
     end
