@@ -2,7 +2,11 @@ class Item < ApplicationRecord
   belongs_to :user
   
   extend ActiveHash::Associations::ActiveRecordExtensions
-  belongs_to_active_hash :category, :condition, :charge, :shipping_place, :shipping_date
+  belongs_to_active_hash :category
+  belongs_to_active_hash :condition
+  belongs_to_active_hash :charge
+  belongs_to_active_hash :shipping_place
+  belongs_to_active_hash :shipping_date
 
   #空の投稿を保存できないようにする
   validates :image, :name, :discription, :price, presence: true
