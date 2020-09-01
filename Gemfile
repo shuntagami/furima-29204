@@ -63,7 +63,7 @@ group :development do
 end
 
 gem 'devise'
-
+gem 'pry-rails'
 # ファイルの一番下の行に追記する
 group :production do
   gem 'rails_12factor'
