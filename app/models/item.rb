@@ -13,5 +13,11 @@ class Item < ApplicationRecord
 
   #ジャンルの選択が「--」の時は保存できないようにする
   validates :category_id, :condition_id, :charge_id, :shipping_place_id, :shipping_date_id, numericality: { other_than: 1 } 
+
+  # priceの範囲設定
+  validates :price, :numericality => { 
+                      :greater_than_or_equal_to=> 300, 
+                      :less_than_or_equal_to => 9_999_999
+                    }
 end
 
