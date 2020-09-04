@@ -31,7 +31,7 @@ gem 'bootsnap', '>= 1.4.2', require: false
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-  gem 'active_hash'
+  
   gem 'rspec-rails', '~> 4.0.0'
   gem 'factory_bot_rails'
   gem 'faker'
@@ -64,6 +64,7 @@ end
 
 gem 'devise'
 gem 'pry-rails'
+gem 'active_hash'
 # ファイルの一番下の行に追記する
 group :production do
   gem 'rails_12factor'
