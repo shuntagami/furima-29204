@@ -69,7 +69,7 @@ gem 'pry-rails'
 gem 'active_hash'
 # ファイルの一番下の行に追記する
 group :production do
-  # gem 'rails_12factor'
+  gem 'rails_12factor'
 end
 
 
