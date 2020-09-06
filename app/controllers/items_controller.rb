@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
   before_action :move_to_index, except: [:index, :show]
+  before_action :find_item, only: [:show, :edit, :update]
   def new
     @item = Item.new
   end
@@ -18,15 +19,12 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @item = Item.find(params[:id])
   end
 
   def edit
-    @item = Item.find(params[:id])
   end
 
   def update
-    @item = Item.find(params[:id])
     if @item.update(item_params)
       redirect_to @item
     else
@@ -47,4 +45,9 @@ class ItemsController < ApplicationController
       redirect_to action: :index
     end
   end
+
+  def find_item
+    @item = Item.find(params[:id])
+  end
+  
 end
