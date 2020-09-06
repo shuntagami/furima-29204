@@ -17,6 +17,10 @@ class ItemsController < ApplicationController
     @items = Item.all.order(id: "DESC")
   end
 
+  def show
+    
+  end
+
   private
 
   def item_params
