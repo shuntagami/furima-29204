@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   before_action :move_to_index, except: [:index, :show]
-  before_action :find_item, only: [:show, :edit, :update]
+  before_action :find_item, only: [:show, :edit, :update,]
   def new
     @item = Item.new
   end
@@ -21,6 +21,15 @@ class ItemsController < ApplicationController
   def show
   end
 
+  def destroy
+    item = Item.find(params[:id])
+    if item.destroy
+      redirect_to root_path
+    else
+    render :show  
+    end
+  end
+
   def edit
   end
 
@@ -31,8 +40,6 @@ class ItemsController < ApplicationController
       render :edit
     end
   end
-
-  private
 
   def item_params
     params.require(:item).permit(
