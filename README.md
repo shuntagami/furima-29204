@@ -90,16 +90,16 @@ Things you may want to cover:
 
 ## addresses テーブル
 
-| Column         | Type       | Options                        |
-| -------------  | ---------- | ------------------------------ |
-| purchased_item | references | null: false, foreign_key: true |
-| postal_code    | string     | null: false                    |
-| prefecture_id  | integer    | null: false                    |
-| city           | string     | null: false                    |
-| building_name  | string     |                                |
-| phone_number   | string     | null: false                    |
+| Column             | Type       | Options                        |
+| -------------      | ---------- | ------------------------------ |
+| order              | references | null: false, foreign_key: true |
+| postal_code        | string     | null: false                    |
+| shipping_place_id  | integer    | null: false                    |
+| city               | string     | null: false                    |
+| building_name      | string     |                                |
+| phone_number       | string     | null: false                    |
 
 ### Association
 
-- belongs_to :purchased_item
-- belongs_to_active_hash :prefecture 
+- belongs_to :order
+- belongs_to_active_hash : shipping_place
