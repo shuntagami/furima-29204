@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(version: 2020_09_07_091039) do
     t.string "postal_code", null: false
     t.integer "shipping_place_id", null: false
     t.string "city", null: false
+    t.string "banti", null: false
     t.string "building_name", null: false
     t.string "phone_number", null: false
     t.datetime "created_at", precision: 6, null: false
