@@ -42,7 +42,7 @@ Things you may want to cover:
 ### Association
 
 - has_many :items
-- has_many :purchased_items
+- has_many :orders
 
 
 
@@ -62,7 +62,7 @@ Things you may want to cover:
 
 ### Association
 
-- has_many :purchased_items
+- has_many :orders
 - belongs_to :user
 - belongs_to_active_hash :category
 - belongs_to_active_hash :condition
