@@ -7,7 +7,7 @@ class OrdersController < ApplicationController
   end
 
   def create
-    @order = Order.new(order_params)
+    @order = OrderAddress.new(order_params)
     if @order.valid?
       pay_item
       @order.save
@@ -19,7 +19,7 @@ class OrdersController < ApplicationController
 
   private
   def order_params
-    params.permit(:token)
+    params.permit(:token, :postal_code, :shipping_place, :city, :banti, :building_name, :phone_number)
   end
 
   def pay_item
