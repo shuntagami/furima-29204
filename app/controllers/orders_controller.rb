@@ -3,11 +3,11 @@ class OrdersController < ApplicationController
   before_action :correct_user, only: [:index]
   def index
     @item = Item.find(params[:item_id])
-    # @order = OrderAddress.new
+    @order = Order.new
   end
 
   def create
-    @order = OrderAddress.new(order_params)
+    @order = Order.new(order_params)
     if @order.valid?
       pay_item
       @order.save
