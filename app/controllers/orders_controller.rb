@@ -1,6 +1,8 @@
 class OrdersController < ApplicationController
+  before_action :move_to_login, only: [:index]
   def index
     @item = Item.find(params[:item_id])
+    @order = Order.new
   end
 
   def create
@@ -10,7 +12,7 @@ class OrdersController < ApplicationController
       @order.save
       return redirect_to root_path
     else
-      render 'index'
+      render :index
     end
   end
 
@@ -26,5 +28,11 @@ class OrdersController < ApplicationController
       card: order_params[:token],    # カードトークン
       currency:'jpy'                 # 通貨の種類(日本円)
     )
+  end
+
+  def move_to_login
+    unless user_signed_in?
+      redirect_to user_session_path
+    end
   end
 end
