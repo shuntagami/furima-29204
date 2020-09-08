@@ -38,7 +38,8 @@ class OrdersController < ApplicationController
   end
 
   def correct_user
-    @item = Item.find(params[:item_id]).user_id
-    redirect_to root_url if current_user.id == @item
+    if current_user.id == Item.find(params[:item_id]).user_id
+      redirect_to root_url
+    end
   end
 end
