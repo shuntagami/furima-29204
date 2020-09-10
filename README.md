@@ -56,7 +56,7 @@ Things you may want to cover:
 | category_id      | integer    | null: false                    |
 | condition_id     | integer    | null: false                    |
 | charge_id        | integer    | null: false                    |
-| shipping_place_id| integer    | null: false                    |
+| prefecture_id    | integer    | null: false                    |
 | shipping_date_id | integer    | null: false                    |
 | price            | integer    | null: false                    |
 
@@ -94,7 +94,7 @@ Things you may want to cover:
 | -------------      | ---------- | ------------------------------ |
 | order              | references | null: false, foreign_key: true |
 | postal_code        | string     | null: false                    |
-| shipping_place     | integer    | null: false                    |
+| prefecture         | integer    | null: false                    |
 | city               | string     | null: false                    |
 | banti              | string     | null: false                    |
 | building_name      | string     |                                |
