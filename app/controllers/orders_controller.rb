@@ -17,10 +17,8 @@ class OrdersController < ApplicationController
       render :index
     end
   end
-# params{ order_address{ } token item_id}
   private
   def order_params
-    # @item = Item.find(params[:item_id])
     params.require(:order_address).permit(:token, :postal_code, :shipping_place_id, :city, :banti, :building_name, :phone_number)
     .merge(user_id: current_user.id, item_id: params[:item_id], token: params[:token])
   end
