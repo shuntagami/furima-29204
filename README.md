@@ -94,7 +94,7 @@ Things you may want to cover:
 | -------------      | ---------- | ------------------------------ |
 | order              | references | null: false, foreign_key: true |
 | postal_code        | string     | null: false                    |
-| shipping_place_id  | integer    | null: false                    |
+| shipping_place     | integer    | null: false                    |
 | city               | string     | null: false                    |
 | banti              | string     | null: false                    |
 | building_name      | string     |                                |
@@ -103,4 +103,3 @@ Things you may want to cover:
 ### Association
 
 - belongs_to :order
-- belongs_to_active_hash :shipping_place
