@@ -11,7 +11,7 @@ describe Item do
         expect(@item).to be_valid
       end
       it "imgがあれば出品できる" do
-        @item.image = "12345.img"
+        @item.image = fixture_file_upload('public/images/test_image.png')
         expect(@item).to be_valid
       end
       it "nameがあれば出品できる" do
@@ -34,8 +34,8 @@ describe Item do
         @item.charge_id = 3
         expect(@item).to be_valid
       end
-      it "shipping_placeが選択してあれば出品できる" do
-        @item.shipping_place_id = 3
+      it "prefectureが選択してあれば出品できる" do
+        @item.prefecture_id = 3
         expect(@item).to be_valid
       end
       it "shipping_dateが選択してあれば出品できる" do
@@ -79,10 +79,10 @@ describe Item do
         @item.valid?
         expect(@item.errors.full_messages).to include("Charge must be other than 1")
       end
-      it "shipping_placeが選択されていないと出品できない" do
-        @item.shipping_place_id = 1
+      it "prefectureが選択されていないと出品できない" do
+        @item.prefecture_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include("Shipping place must be other than 1")
+        expect(@item.errors.full_messages).to include("Prefecture must be other than 1")
       end
       it "shipping_dateが選択されていないと出品できない" do
         @item.shipping_date_id = 1
