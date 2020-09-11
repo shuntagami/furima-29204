@@ -1,14 +1,13 @@
 class OrdersController < ApplicationController
   before_action :move_to_login, only: [:index]
   before_action :correct_user, only: [:index]
-  
+  before_action :find_item, only: [:index, :create]
+
   def index
-    @item = Item.find(params[:item_id])
     @order = OrderAddress.new
   end
 
   def create
-    @item = Item.find(params[:item_id])
     @order = OrderAddress.new(order_params)
     if @order.valid?
       pay_item
@@ -18,6 +17,7 @@ class OrdersController < ApplicationController
       render :index
     end
   end
+
   private
   def order_params
     params.require(:order_address).permit(:token, :postal_code, :prefecture, :city, :banti, :building_name, :phone_number)
@@ -33,6 +33,10 @@ class OrdersController < ApplicationController
       card: params[:token],    # カードトークン
       currency:'jpy'                 # 通貨の種類(日本円)
     )
+  end
+
+  def find_item
+    @item = Item.find(params[:item_id])
   end
 
   def move_to_login
