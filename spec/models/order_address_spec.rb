@@ -7,6 +7,10 @@ describe OrderAddress do
   it "全て正しく入力されていれば購入可能" do
      expect(@order_address).to be_valid
   end
+  it "建物名が空でも購入可能" do
+    @order_address.building_name = nil
+    expect(@order_address).to be_valid
+  end
   it "カード番号が空だと購入できない" do
     @order_address.token = nil
     @order_address.valid?

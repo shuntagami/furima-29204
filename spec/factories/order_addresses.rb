@@ -5,6 +5,7 @@ FactoryBot.define do
     prefecture      { id = 2 }
     city            { Faker::Address.city }
     banti           { Faker::Address.building_number }
+    building_name   { Faker::Address.city_prefix }
     phone_number    { Faker::PhoneNumber.cell_phone.delete("-") }
     token           { "tok_0000000000000000000000000000" }
   end
