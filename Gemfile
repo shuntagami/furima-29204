@@ -68,6 +68,7 @@ gem 'devise'
 gem 'pry-rails'
 gem 'active_hash'
 gem 'payjp'
+gem "aws-sdk-s3", require: false
 # ファイルの一番下の行に追記する
 # group :production do
 #   gem 'rails_12factor'
