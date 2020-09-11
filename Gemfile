@@ -67,6 +67,7 @@ gem 'image_processing', '~> 1.2'
 gem 'devise'
 gem 'pry-rails'
 gem 'active_hash'
+gem 'payjp'
 # ファイルの一番下の行に追記する
 # group :production do
 #   gem 'rails_12factor'

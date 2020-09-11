@@ -42,7 +42,7 @@ Things you may want to cover:
 ### Association
 
 - has_many :items
-- has_many :purchased_items
+- has_many :orders
 
 
 
@@ -56,13 +56,13 @@ Things you may want to cover:
 | category_id      | integer    | null: false                    |
 | condition_id     | integer    | null: false                    |
 | charge_id        | integer    | null: false                    |
-| shipping_place_id| integer    | null: false                    |
+| prefecture_id    | integer    | null: false                    |
 | shipping_date_id | integer    | null: false                    |
 | price            | integer    | null: false                    |
 
 ### Association
 
-- has_many :purchased_items
+- has_many :orders
 - belongs_to :user
 - belongs_to_active_hash :category
 - belongs_to_active_hash :condition
@@ -72,7 +72,7 @@ Things you may want to cover:
 
 
 
-## purchased_items テーブル
+## orders テーブル
 
 | Column   | Type       | Options                        |
 | -------- | ---------- | ------------------------------ |
@@ -90,16 +90,16 @@ Things you may want to cover:
 
 ## addresses テーブル
 
-| Column         | Type       | Options                        |
-| -------------  | ---------- | ------------------------------ |
-| purchased_item | references | null: false, foreign_key: true |
-| postal_code    | string     | null: false                    |
-| prefecture_id  | integer    | null: false                    |
-| city           | string     | null: false                    |
-| building_name  | string     |                                |
-| phone_number   | string     | null: false                    |
+| Column             | Type       | Options                        |
+| -------------      | ---------- | ------------------------------ |
+| order              | references | null: false, foreign_key: true |
+| postal_code        | string     | null: false                    |
+| prefecture         | integer    | null: false                    |
+| city               | string     | null: false                    |
+| banti              | string     | null: false                    |
+| building_name      | string     |                                |
+| phone_number       | string     | null: false                    |
 
 ### Association
 
-- belongs_to :purchased_item
-- belongs_to_active_hash :prefecture 
+- belongs_to :order
