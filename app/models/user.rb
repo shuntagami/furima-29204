@@ -7,7 +7,7 @@ class User < ApplicationRecord
   validates :nickname, :birth_date, presence: true
           
   PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i.freeze
-  validates_format_of :password, :password_confirmation, with: PASSWORD_REGEX, message: 'Include both letters and numbers'
+  validates_format_of :password, with: PASSWORD_REGEX, message: 'Include both letters and numbers'
 
   NAME_REGEX = /[ぁ-んァ-ン一-龥]/.freeze
   with_options presence: true, format: { with: NAME_REGEX, message: 'Full-width characters' } do
