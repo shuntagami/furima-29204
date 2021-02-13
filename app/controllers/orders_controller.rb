@@ -11,6 +11,7 @@ class OrdersController < ApplicationController
     @order = OrderAddress.new(order_params)
     if @order.valid?
       pay_item
+      binding.pry
       @order.save
       return redirect_to root_path
     else
