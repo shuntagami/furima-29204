@@ -1,10 +1,10 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.6.5'
+ruby '3.0.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 6.0.0'
+gem 'rails', '~> 6.1.2.1'
 # Use mysql as the database for Active Record
 gem 'mysql2', '>= 0.4.4'
 # Use Puma as the app server
@@ -68,7 +68,6 @@ gem 'devise'
 gem 'pry-rails'
 gem 'active_hash'
 gem 'payjp'
-gem "aws-sdk-s3", require: false
 # ファイルの一番下の行に追記する
 # group :production do
 #   gem 'rails_12factor'
