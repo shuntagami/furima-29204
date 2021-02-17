@@ -15,7 +15,7 @@ class ItemsController < ApplicationController
   end
 
   def index
-    @items = Item.all.order(id: "DESC")
+    @items = Item.all.order(id: 'DESC')
   end
 
   def show
@@ -26,7 +26,7 @@ class ItemsController < ApplicationController
     if item.destroy
       redirect_to root_path
     else
-    render :show  
+      render :show
     end
   end
 
@@ -48,13 +48,10 @@ class ItemsController < ApplicationController
   end
 
   def move_to_index
-    unless user_signed_in?
-      redirect_to action: :index
-    end
+    redirect_to action: :index unless user_signed_in?
   end
 
   def find_item
     @item = Item.find(params[:id])
   end
-  
 end

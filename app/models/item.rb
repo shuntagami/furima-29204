@@ -9,23 +9,19 @@ class Item < ApplicationRecord
   belongs_to_active_hash :shipping_date
   has_one_attached :image
 
-
-  #空の投稿を保存できないようにする
+  # 空の投稿を保存できないようにする
   validates :name, :description, :price, presence: true
   validate :image_presence
-  #ジャンルの選択が「--」の時は保存できないようにする
-  validates :category_id, :condition_id, :charge_id, :prefecture_id, :shipping_date_id, numericality: { other_than: 1 } 
+  # ジャンルの選択が「--」の時は保存できないようにする
+  validates :category_id, :condition_id, :charge_id, :prefecture_id, :shipping_date_id, numericality: { other_than: 1 }
 
   # priceの範囲設定
-  validates :price, :numericality => { 
-                      :greater_than_or_equal_to=> 300, 
-                      :less_than_or_equal_to => 9_999_999
-                    }
+  validates :price, numericality: {
+    greater_than_or_equal_to: 300,
+    less_than_or_equal_to: 9_999_999
+  }
 
   def image_presence
-    unless image.attached?
-      errors.add(:image, "can't be blank" )
-    end
-  end                  
+    errors.add(:image, "can't be blank") unless image.attached?
+  end
 end
-
